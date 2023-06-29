@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -23,4 +23,7 @@ function App() {
   );
 }
 
-export default App;
+// UI Sign up form
+// Back-End MongoDB Mongoose
+// Login
+  // Login as a guest feature
