@@ -1,6 +1,6 @@
-// require('dotenv').config();
 const { log } = require('console');
 const express = require('express');
+// const cors = require('cors');
 const mongoose = require('mongoose');
 
 const path = require('path');
@@ -14,6 +14,8 @@ mongoose.connect(process.env.REACT_APP_MONGO_URI, {
 
 const app = express();
 const port = 5000;
+
+// app.use(cors())
 
 // Define a sample API endpoint
 app.get('/api/data', (req, res) => {
