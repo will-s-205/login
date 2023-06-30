@@ -1,18 +1,17 @@
 const express = require('express');
+const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+const dotenv = require('dotenv');
 const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+dotenv.config({ path: path.resolve(__dirname, '../.env.local') });
 
 // Connect to MongoDB using Mongoose
-mongoose.connect(process.env.REACT_APP_MONGO_URI_III, {
+const mongodb = mongoose.connect(process.env.REACT_APP_MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
-const app = express();
-const port = 5000;
 
 app.use(cors())
 
@@ -24,6 +23,8 @@ app.get('/api/data', (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(process.env.MONGODB, () => {
+  console.log(`Server is running on port ${process.env.MONGODB}`);
 });
+
+exports.module = mongodb;
