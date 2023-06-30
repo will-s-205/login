@@ -6,10 +6,10 @@ export default function App() {
     email: "",
     password: "",
     passwordConfirm: "",
-    joinedNewsletter: true
+    joinedNewsletter: false
   })
 
-  function handleChange(event: { target: { name: any; value: any; type: any; checked: any } }) {
+  function handleChange(event: { target: { name: any; value: any; type: any; checked: boolean } }) {
     const { name, value, type, checked } = event.target
     setFormData(prevFormData => ({
       ...prevFormData,
@@ -19,15 +19,16 @@ export default function App() {
 
   function handleSubmit(event: { preventDefault: () => void }) {
     event.preventDefault()
-    if (formData.password === formData.passwordConfirm) {
-      console.log("Successfully signed up")
-    } else {
+    if (formData.email === '') {
+      console.log("Enter your email")
+    } else if (formData.password === '') {
+      console.log("Enter new password")
+    } else if (formData.password !== formData.passwordConfirm) {
       console.log("Passwords do not match")
-      return
-    }
-
-    if (formData.joinedNewsletter) {
+    } else if (formData.joinedNewsletter) {
       console.log("Thanks for signing up for our newsletter!")
+    } else {
+      console.log("Successfully signed up")
     }
   }
 
