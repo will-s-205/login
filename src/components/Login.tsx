@@ -9,9 +9,9 @@ export default function App() {
     joinedNewsletter: false
   })
 
-    useEffect(() => {
-      console.log("useEffect")
-      localStorage.setItem("userCreds", JSON.stringify(formData))
+  useEffect(() => {
+    console.log("useEffect")
+    localStorage.setItem("userCreds", JSON.stringify(formData))
   }, [formData])
 
   function handleChange(event: { target: { name: any; value: any; type: any; checked: boolean } }) {
@@ -23,7 +23,7 @@ export default function App() {
   }
 
   function saveData() {
-    localStorage.setItem("userCreds", JSON.stringify({email: formData.email, password: formData.password}))
+    localStorage.setItem("userCreds", JSON.stringify({ email: formData.email, password: formData.password }))
     console.log(JSON.parse(localStorage.getItem("userCreds") || ""))
   }
 
