@@ -14,7 +14,7 @@ export default function App() {
     localStorage.setItem("userCreds", JSON.stringify(formData))
   }, [formData])
 
-  function handleChange(event: { target: { name: any; value: any; type: any; checked: boolean } }) {
+  function handleChange(event: { target: { name: string; value: any; type: any; checked: boolean } }) {
     const { name, value, type, checked } = event.target
     setFormData(prevFormData => ({
       ...prevFormData,
