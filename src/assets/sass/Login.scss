@@ -1,8 +1,7 @@
 body {
-    margin: 0;
     background-color: rgb(51, 83, 153);
     height: 100vh;
-    font-family: 'Inter', sans-serif;
+    font-family: --typeface-inter;
 }
 
 .form-container {
@@ -15,7 +14,7 @@ body {
 }
 
 .form {
-    background-color: white;
+    background-color: var(--white-light);
     padding: 50px;
     border-radius: 10px;
     display: flex;
