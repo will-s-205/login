@@ -22,10 +22,10 @@ export default function App() {
     }))
   }
 
-  function saveData() {
-    localStorage.setItem("userCreds", JSON.stringify({ email: formData.email, password: formData.password, joinedNewsletter: formData.joinedNewsletter })) // DEBBUG
-    console.log(JSON.parse(localStorage.getItem("userCreds") || "")) // DEBBUG
-  }
+  // function saveData() {
+  //   localStorage.setItem("userCreds", JSON.stringify({ email: formData.email, password: formData.password, joinedNewsletter: formData.joinedNewsletter })) // DEBBUG
+  //   console.log(JSON.parse(localStorage.getItem("userCreds") || "")) // DEBBUG
+  // }
  
   async function mongoSignup(event) {
     event.preventDefault()
