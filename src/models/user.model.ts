@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 
 const User = new mongoose.Schema({
-    // name: { type: String, required: false },
+    name: { type: String, required: false },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    // newsletter: { type: Boolean, required: false },
-    // date: { type: Date, default: Date.now },
+    newsletter: { type: Boolean, required: false },
+    date: { type: Date, default: Date.now },
 },
-    { collection: 'userCreds' }
+    { collection: 'UsersData' }
 );
 
-const UserCreds = mongoose.model('userCreds', User);
+const UserCreds = mongoose.model('UserCreds', User);
 
 module.exports = UserCreds;

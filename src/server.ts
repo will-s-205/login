@@ -9,15 +9,12 @@ const userCreds = require('./models/user.model.ts');
 dotenv.config({ path: path.resolve(__dirname, '../.env.local') });
 app.use(cors());
 app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.static(path.resolve(__dirname, '../build')));
-// app.get('/', (req, res) => {
 
 // Connect to MongoDB using Mongoose
 mongooseDB.connect(process.env.REACT_APP_MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  // useCreateIndex: true,
+  // useCreateIndex: true, // not supported
 });
 
 // INITALL DEBUGGING
@@ -25,6 +22,7 @@ app.get('', (req, res) => {
   res.json({ message: 'API endpoint is working' });
 });
 
+// SIGNUP
 app.post('/api/signup', async (req, res) => {
   console.log(req.body);
   try {
@@ -39,26 +37,9 @@ app.post('/api/signup', async (req, res) => {
     console.log(error);
     res.json({ status: 'error', message: error });
   }
-
-  //   try {
-  //     const { name, email, password, newsletter } = req.body;
-  //     const user = new UserCreds({ name, email, password, newsletter });
-  //     await user.save();
-  //     res.json({ status: 'ok', message: 'User has been created' });
-  //   }
-  //   catch (err) {
-  //     console.log(err);
-  //     res.json({ status: 'error', message: err });
-  //   }
-  /////////////////////////////////////////////////////////////////////////
-  //   res.json({status: 'ok', message: 'Signup API endpoint is working'});
-  //   console.log(req.body);
 });
-
 
 // Start the server
 app.listen(process.env.MONGO_PORT, () => {
   console.log(`Server is running on port ${process.env.MONGO_PORT}`);
 });
-
-// exports.module = connectMongoDB();

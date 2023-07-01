@@ -29,19 +29,6 @@ export default function App() {
  
   async function mongoSignup(event) {
     event.preventDefault()
-    const response = await fetch('http://localhost:4000/api/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email: formData.email, password: formData.password })
-    })
-    const data = await response.json()
-    console.log(data)
-  }
-
-  function handleSubmit(event: { preventDefault: () => void }) {
-    event.preventDefault()
     if (formData.email === '' && formData.email === "") {
       console.log("Please enter your email")
       return
@@ -58,13 +45,21 @@ export default function App() {
       if (formData.joinedNewsletter)
         console.log("Thanks for signing up for our newsletter!")
     console.log("Successfully signed up")
-    saveData();
+
+    const response = await fetch('http://localhost:4000/api/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: formData.email, password: formData.password })
+    })
+    const data = await response.json()
+    console.log(data)
   }
 
   return (
     <div className="form-container">
       <form className="form" onSubmit={mongoSignup} action="/api/signup" method="POST">
-      {/* <form className="form" onSubmit={handleSubmit} action="/api/signup" method="POST"> */}
         <input
           type='email'
           placeholder="Email address"
