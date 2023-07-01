@@ -16,7 +16,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": false,
+    "isolatedModules": false, // CHANGE TO TRUE WHEN DONE WITH SERVER
     "noImplicitAny":false,
     "noEmit": true,
     "jsx": "react-jsx"

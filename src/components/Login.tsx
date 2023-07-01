@@ -23,8 +23,21 @@ export default function App() {
   }
 
   function saveData() {
-    localStorage.setItem("userCreds", JSON.stringify({ email: formData.email, password: formData.password }))
-    console.log(JSON.parse(localStorage.getItem("userCreds") || ""))
+    localStorage.setItem("userCreds", JSON.stringify({ email: formData.email, password: formData.password })) // DEBBUG
+    console.log(JSON.parse(localStorage.getItem("userCreds") || "")) // DEBBUG
+  }
+ 
+  async function mongoSignup(event) {
+    event.preventDefault()
+    const response = await fetch('http://localhost:1337/api/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: formData.email, password: formData.password })
+    })
+    const data = await response.json()
+    console.log(data)
   }
 
   function handleSubmit(event: { preventDefault: () => void }) {
@@ -50,7 +63,8 @@ export default function App() {
 
   return (
     <div className="form-container">
-      <form className="form" onSubmit={handleSubmit} action="api/creds" method="POST">
+      <form className="form" onSubmit={mongoSignup} action="/api/signup" method="POST">
+      {/* <form className="form" onSubmit={handleSubmit} action="/api/signup" method="POST"> */}
         <input
           type='email'
           placeholder="Email address"

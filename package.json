@@ -21,6 +21,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "dev": "start http://localhost:1337/ && nodemon ./src/server.ts",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -47,7 +48,9 @@
     ]
   },
   "devDependencies": {
+    "@types/nodemon": "^1.19.2",
     "gh-pages": "^5.0.0",
+    "nodemon": "^2.0.22",
     "sass": "^1.63.6"
   }
 }
