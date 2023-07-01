@@ -23,7 +23,7 @@ export default function App() {
   }
 
   function saveData() {
-    localStorage.setItem("userCreds", JSON.stringify({ email: formData.email, password: formData.password })) // DEBBUG
+    localStorage.setItem("userCreds", JSON.stringify({ email: formData.email, password: formData.password, joinedNewsletter: formData.joinedNewsletter })) // DEBBUG
     console.log(JSON.parse(localStorage.getItem("userCreds") || "")) // DEBBUG
   }
  
@@ -51,7 +51,10 @@ export default function App() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ email: formData.email, password: formData.password })
+      body: JSON.stringify({ 
+        email: formData.email, 
+        password: formData.password, 
+        newsletter: formData.joinedNewsletter })
     })
     const data = await response.json()
     console.log(data)
