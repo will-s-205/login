@@ -29,7 +29,7 @@ export default function App() {
  
   async function mongoSignup(event) {
     event.preventDefault()
-    const response = await fetch('http://localhost:1337/api/signup', {
+    const response = await fetch('http://localhost:4000/api/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

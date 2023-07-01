@@ -21,7 +21,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dev": "start http://localhost:1337/ && nodemon ./src/server.ts",
+    "dev": "start http://localhost:4000/ && nodemon ./src/server.ts",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
