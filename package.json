@@ -11,6 +11,7 @@
     "@types/node": "^16.18.37",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "concurrently": "^8.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "mongoose": "^7.3.1",
