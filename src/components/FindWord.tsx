@@ -1,6 +1,5 @@
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 import '../assets/sass/FindWord.scss'
-import jwt from 'jsonwebtoken'
 import { useNavigate } from 'react-router-dom'
 
 export default function SignIn() {
@@ -18,27 +17,6 @@ export default function SignIn() {
         const data = req.json();
         console.log(data); // DEBUG
     }
-
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            const decodedToken = jwt.decode(token);
-            if (decodedToken.exp * 1000 < Date.now()) {
-                console.log("Token expired");
-                localStorage.removeItem('token');
-                navigate('/signin', { replace: true })
-            }
-            else if (!decodedToken) {
-                localStorage.removeItem('token');
-                navigate('/signin', { replace: true })
-            }
-            else {
-                populateFindWord();
-                console.log("Token valid");
-            }
-            console.log(decodedToken); // DEBUG
-        }
-    }, [])
 
     return (
         <div className="sign-in">
