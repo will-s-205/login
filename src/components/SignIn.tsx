@@ -27,7 +27,7 @@ export default function SignIn() {
   //   console.log(JSON.parse(localStorage.getItem("userCreds") || "")) // DEBBUG
   // }
 
-  async function mongoSignup(event) {
+  async function mongoSignin(event) {
     event.preventDefault()
     if (formData.email === '' && formData.email === "") {
       console.log("Please enter your email")
@@ -65,7 +65,7 @@ export default function SignIn() {
 
   return (
     <div className="form-container">
-      <form className="form" onSubmit={mongoSignup} action="/api/signin" method="POST">
+      <form className="form" onSubmit={mongoSignin} action="/api/signin" method="POST">
         <input
           type='email'
           placeholder="Email address"
