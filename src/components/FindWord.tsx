@@ -35,7 +35,7 @@ export default function FindWord() {
 
 
     return (
-        <div className="sign-in">
+        <div className="find-word-wrapper">
             <h1>FIND WORDS PAGE</h1>
         </div>
     )
