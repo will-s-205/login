@@ -38,7 +38,7 @@ export default function SignUp() {
       return
     }
     else if (formData.password !== formData.passwordConfirm) {
-      console.log("Passwords do not match")
+      alert("Passwords do not match")
       return
     }
     else
@@ -59,8 +59,19 @@ export default function SignUp() {
         newsletter: formData.joinedNewsletter
       })
     })
+
     const data = await response.json()
-    console.log(data)
+
+    if (data.message === "User has been created") {
+      console.log("Sign up successful")
+      window.location.href = "https://my-scrimba-study.rigo205.repl.co"
+    } else if (data.message.code === 11000) {
+      alert("Email is already registered. Please login or try again.")
+    } else {
+      alert("Sign up failed. Please try again.")
+      console.log("Sign up. Please try again.")
+    }
+    console.log(data) // DEBUG
   }
 
   return (
@@ -69,7 +80,7 @@ export default function SignUp() {
         <input
           type='email'
           placeholder="Email address"
-          className="form--input"
+          className="form-input"
           name='email'
           onChange={handleChange}
           value={formData.email}
@@ -77,7 +88,7 @@ export default function SignUp() {
         <input
           type="password"
           placeholder="Password"
-          className="form--input"
+          className="form-input"
           name="password"
           onChange={handleChange}
           value={formData.password}
@@ -85,12 +96,12 @@ export default function SignUp() {
         <input
           type="password"
           placeholder="Confirm password"
-          className="form--input"
+          className="form-input"
           name="passwordConfirm"
           onChange={handleChange}
           value={formData.passwordConfirm}
         />
-        <div className="form--marketing">
+        <div className="form-marketing">
           <input
             id='email-okay'
             type="checkbox"
@@ -101,10 +112,11 @@ export default function SignUp() {
           <label htmlFor="okayToEmail">I want to join the newsletter</label>
         </div>
         <button
-          className="form--submit"
+          className="form-submit"
         >
           Sign up
         </button>
+        <a href="/api/signin" className="form-link">Already have an account? Sign in</a>
       </form>
     </div>
   )

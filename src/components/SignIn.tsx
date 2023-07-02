@@ -51,8 +51,16 @@ export default function SignIn() {
         password: formData.password,
       })
     })
+
     const data = await response.json()
-    console.log(data)
+
+    if(data.user) { 
+      console.log("Login successful")
+      window.location.href = "https://my-scrimba-study.rigo205.repl.co"
+    } else {
+      alert("Login failed. Please try again.")
+    }
+    console.log(data) // DEBUG
   }
 
   return (
@@ -61,7 +69,7 @@ export default function SignIn() {
         <input
           type='email'
           placeholder="Email address"
-          className="form--input"
+          className="form-input"
           name='email'
           onChange={handleChange}
           value={formData.email}
@@ -69,16 +77,17 @@ export default function SignIn() {
         <input
           type="password"
           placeholder="Password"
-          className="form--input"
+          className="form-input"
           name="password"
           onChange={handleChange}
           value={formData.password}
         />
         <button
-          className="form--submit"
+          className="form-submit"
         >
           Sign in
         </button>
+        <a href="/api/signup" className="form-link">Don't have an account? Sign up</a>
       </form>
     </div>
   )
