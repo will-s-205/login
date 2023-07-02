@@ -44,11 +44,11 @@ export default function App() {
     else
       if (formData.joinedNewsletter)
         console.log("Thanks for signing up for our newsletter!")
-    console.log("Successfully signed up")
+    console.log("Wait... signing up")
 
     const url2: string = 'http://localhost:4000/api/signup'
     const url: string = 'https://login.rigo205.repl.co:4000/api/signup'
-    const response = await fetch(url, {
+    const response = await fetch(url2, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
