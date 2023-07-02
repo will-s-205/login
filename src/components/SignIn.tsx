@@ -60,7 +60,7 @@ export default function Signip() {
       console.log("Login successful")
       navigate('/findword', { replace: true })
     } else {
-      alert("Login failed. Please try again.")
+      alert("Login failed. Please check your email and password.")
     }
     console.log(data) // DEBUG
   }
