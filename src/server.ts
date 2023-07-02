@@ -5,6 +5,7 @@ const mongooseDB = require('mongoose');
 const dotenv = require('dotenv');
 const path = require('path');
 const userCreds = require('./models/user.model.ts');
+const port = process.env.PORT || 4000
 
 dotenv.config({ path: path.resolve(__dirname, '../.env.local') });
 app.use(cors());
@@ -41,4 +42,4 @@ app.post(signup, async (req, res) => {
 });
 
 // Start the server
-app.listen(() => {});
+app.listen(process.env.MONGO_PORT, () => { });

@@ -46,6 +46,7 @@ export default function App() {
         console.log("Thanks for signing up for our newsletter!")
     console.log("Wait... signing up")
 
+    const url2: string = 'http://localhost:4000/api/signup'
     const url: string = 'https://server.rigo205.repl.co/api/signup'
     const response = await fetch(url, {
       method: 'POST',
