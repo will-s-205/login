@@ -1,22 +1,38 @@
 // import { useEffect } from 'react'
 import '../assets/sass/FindWord.scss'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+// import jwt from 'jsonwebtoken'
+import { useEffect } from 'react';
 
 export default function FindWord() {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
-    // async function populateFindWord() {
-    //     // const data = await fetch('api/findword', {
-    //     // OR
-    //     const req = await fetch('https://server.rigo205.repl.co/api/findword', {
-    //         headers: {
-    //             'x-access-token': localStorage.getItem('token') || ''
-    //         }
-    //     });
+    async function populateFindWord() {
+        // const data = await fetch('api/findword', {
+        // OR
+        const req = await fetch('/findword', {
+            headers: {
+                'x-access-token': localStorage.getItem('token') || ''
+            }
+        })
+        console.log("FindWord - populateFindWord - localStorage.getItem ", localStorage.getItem('userCreds')); // DEBUG
+        console.log("FindWord - populateFindWord - localStorage.getItem ", localStorage.getItem('token')); // DEBUG
+    };
 
-        // const data = req.json();
-        // console.log(data); // DEBUG
-    // }
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        console.log("FindWord - useEffect - got token - ", token); // DEBUG
+        if (!token) {
+            localStorage.removeItem('token');
+            navigate('/login', { replace: true });
+            console.log("FindWord - useEffect - NO TOKEN - ", token); // DEBUG
+        } else {
+            populateFindWord();
+            console.log("FindWord - useEffect - populateFindWord() - ", token); // DEBUG
+        }
+    }, [])
+
+
 
     return (
         <div className="sign-in">

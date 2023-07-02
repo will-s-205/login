@@ -12,8 +12,8 @@ export default function Signip() {
   })
 
   useEffect(() => {
-    console.log("useEffect")
-    localStorage.setItem("userCreds", JSON.stringify(formData))
+    // console.log("useEffect") // DEBUG
+    // localStorage.setItem("userCreds", JSON.stringify(formData)) // DEBUG
   }, [formData])
 
   function handleChange(event: { target: { name: string; value: any; type: any; checked: boolean } }) {
@@ -56,8 +56,10 @@ export default function Signip() {
 
     const data = await response.json()
 
-    if(data.user) { 
-      console.log("Login successful")
+    if(data.token) { 
+      console.log("SignIn - Login successful")
+      localStorage.setItem('token', data.token)
+      console.log("SignIn - ", data.token)
       navigate('/findword', { replace: true })
     } else {
       alert("Login failed. Please check your email and password.")

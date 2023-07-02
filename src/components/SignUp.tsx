@@ -12,8 +12,8 @@ export default function SignUp() {
   })
 
   useEffect(() => {
-    console.log("useEffect")
-    localStorage.setItem("userCreds", JSON.stringify(formData))
+    // console.log("useEffect") // DEBUG
+    // localStorage.setItem("userCreds", JSON.stringify(formData)) // DEBUG
   }, [formData])
 
   function handleChange(event: { target: { name: string; value: any; type: any; checked: boolean } }) {
