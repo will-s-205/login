@@ -47,7 +47,7 @@ export default function App() {
     console.log("Wait... signing up")
 
     const url2: string = 'http://localhost:4000/api/signup'
-    const url: string = 'https://login.rigo205.repl.co:4000/api/signup'
+    const url: string = 'https://login.rigo205.repl.co/api/signup'
     const response = await fetch(url2, {
       method: 'POST',
       headers: {
