@@ -34,20 +34,13 @@ export default function SignIn() {
       return
     }
     else if (formData.password === '') {
-      console.log("Please enter new password")
+      console.log("Please enter your password")
       return
     }
-    else if (formData.password !== formData.passwordConfirm) {
-      console.log("Passwords do not match")
-      return
-    }
-    else
-      if (formData.joinedNewsletter)
-        console.log("Thanks for signing up for our newsletter!")
-    console.log("Wait... signing up")
+    console.log("Wait... checking creds")
 
-    const url2: string = 'http://localhost:4000/api/signup'
-    const url: string = 'https://server.rigo205.repl.co/api/signup'
+    const url2: string = 'http://localhost:4000/api/signin'
+    const url: string = 'https://server.rigo205.repl.co/api/signin'
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -56,7 +49,6 @@ export default function SignIn() {
       body: JSON.stringify({
         email: formData.email,
         password: formData.password,
-        newsletter: formData.joinedNewsletter
       })
     })
     const data = await response.json()
@@ -65,7 +57,7 @@ export default function SignIn() {
 
   return (
     <div className="form-container">
-      <form className="form" onSubmit={mongoSignup} action="/api/signup" method="POST">
+      <form className="form" onSubmit={mongoSignup} action="/api/signin" method="POST">
         <input
           type='email'
           placeholder="Email address"
@@ -82,24 +74,6 @@ export default function SignIn() {
           onChange={handleChange}
           value={formData.password}
         />
-        <input
-          type="password"
-          placeholder="Confirm password"
-          className="form--input"
-          name="passwordConfirm"
-          onChange={handleChange}
-          value={formData.passwordConfirm}
-        />
-        <div className="form--marketing">
-          <input
-            id='email-okay'
-            type="checkbox"
-            name="joinedNewsletter"
-            onChange={handleChange}
-            checked={formData.joinedNewsletter}
-          />
-          <label htmlFor="okayToEmail">I want to join the newsletter</label>
-        </div>
         <button
           className="form--submit"
         >
