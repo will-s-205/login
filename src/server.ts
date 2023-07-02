@@ -23,7 +23,8 @@ app.get('', (req, res) => {
 });
 
 // SIGNUP
-app.post('/api/signup', async (req, res) => {
+const signup: string = '/api/signup';
+app.post(signup, async (req, res) => {
   console.log(req.body);
   try {
     const user = await userCreds.create({

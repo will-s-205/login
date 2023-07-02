@@ -26,7 +26,7 @@ export default function App() {
   //   localStorage.setItem("userCreds", JSON.stringify({ email: formData.email, password: formData.password, joinedNewsletter: formData.joinedNewsletter })) // DEBBUG
   //   console.log(JSON.parse(localStorage.getItem("userCreds") || "")) // DEBBUG
   // }
- 
+
   async function mongoSignup(event) {
     event.preventDefault()
     if (formData.email === '' && formData.email === "") {
@@ -46,15 +46,18 @@ export default function App() {
         console.log("Thanks for signing up for our newsletter!")
     console.log("Successfully signed up")
 
-    const response = await fetch('http://localhost:4000/api/signup', {
+    const url2: string = 'http://localhost:4000/api/signup'
+    const url: string = 'https://login.rigo205.repl.co:4000/api/signup'
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ 
-        email: formData.email, 
-        password: formData.password, 
-        newsletter: formData.joinedNewsletter })
+      body: JSON.stringify({
+        email: formData.email,
+        password: formData.password,
+        newsletter: formData.joinedNewsletter
+      })
     })
     const data = await response.json()
     console.log(data)
