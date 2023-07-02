@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import '../assets/sass/Login.scss'
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -46,7 +48,7 @@ export default function SignUp() {
         console.log("Thanks for signing up for our newsletter!")
     console.log("Wait... signing up")
 
-    const url2: string = 'http://localhost:4000/api/signup'
+    // const url2: string = 'http://localhost:4000/api/signup'
     const url: string = 'https://server.rigo205.repl.co/api/signup'
     const response = await fetch(url, {
       method: 'POST',
@@ -64,7 +66,8 @@ export default function SignUp() {
 
     if (data.message === "User has been created") {
       console.log("Sign up successful")
-      window.location.href = "/findword"
+      navigate('/signin', { replace: true })
+      // window.location.href = "/findword"
     } else if (data.message.code === 11000) {
       alert("Email is already registered. Please login or try again.")
     } else {

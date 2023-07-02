@@ -39,7 +39,7 @@ export default function SignIn() {
     }
     console.log("Wait... checking creds")
 
-    const url2: string = 'http://localhost:4000/api/signin'
+    // const url2: string = 'http://localhost:4000/api/signin'
     const url: string = 'https://server.rigo205.repl.co/api/signin'
     const response = await fetch(url, {
       method: 'POST',
