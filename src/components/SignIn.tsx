@@ -56,7 +56,7 @@ export default function SignIn() {
 
     if(data.user) { 
       console.log("Login successful")
-      window.location.href = "https://my-scrimba-study.rigo205.repl.co"
+      window.location.href = "/findword"
     } else {
       alert("Login failed. Please try again.")
     }
@@ -87,7 +87,7 @@ export default function SignIn() {
         >
           Sign in
         </button>
-        <a href="/api/signup" className="form-link">Don't have an account? Sign up</a>
+        <a href="/signup" className="form-link">Don't have an account? Sign up</a>
       </form>
     </div>
   )

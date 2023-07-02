@@ -64,7 +64,7 @@ export default function SignUp() {
 
     if (data.message === "User has been created") {
       console.log("Sign up successful")
-      window.location.href = "https://my-scrimba-study.rigo205.repl.co"
+      window.location.href = "/findword"
     } else if (data.message.code === 11000) {
       alert("Email is already registered. Please login or try again.")
     } else {
@@ -116,7 +116,7 @@ export default function SignUp() {
         >
           Sign up
         </button>
-        <a href="/api/signin" className="form-link">Already have an account? Sign in</a>
+        <a href="/signin" className="form-link">Already have an account? Sign in</a>
       </form>
     </div>
   )
