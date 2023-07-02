@@ -66,7 +66,7 @@ export default function SignUp() {
 
     if (data.message === "User has been created") {
       console.log("Sign up successful")
-      navigate('/signin', { replace: true })
+      navigate('/findword', { replace: true })
       // window.location.href = "/findword"
     } else if (data.message.code === 11000) {
       alert("Email is already registered. Please login or try again.")
@@ -119,7 +119,7 @@ export default function SignUp() {
         >
           Sign up
         </button>
-        <a href="/signin" className="form-link">Already have an account? Sign in</a>
+        <a href="/login" className="form-link">Already have an account? Sign in</a>
       </form>
     </div>
   )

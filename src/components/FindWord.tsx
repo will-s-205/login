@@ -2,7 +2,7 @@
 import '../assets/sass/FindWord.scss'
 // import { useNavigate } from 'react-router-dom'
 
-export default function SignIn() {
+export default function FindWord() {
     // const navigate = useNavigate();
 
     // async function populateFindWord() {
@@ -20,7 +20,7 @@ export default function SignIn() {
 
     return (
         <div className="sign-in">
-            <h1>Sign In</h1>
+            <h1>FIND WORDS PAGE</h1>
         </div>
     )
 }

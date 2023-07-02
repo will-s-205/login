@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import '../assets/sass/Login.scss'
+import { useNavigate } from 'react-router-dom';
 
-export default function SignIn() {
+export default function Signip() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -56,7 +58,7 @@ export default function SignIn() {
 
     if(data.user) { 
       console.log("Login successful")
-      window.location.href = "/findword"
+      navigate('/findword', { replace: true })
     } else {
       alert("Login failed. Please try again.")
     }
