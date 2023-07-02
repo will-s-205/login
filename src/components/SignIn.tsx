@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import '../assets/sass/Login.scss'
 
-export default function App() {
+export default function SignIn() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -103,7 +103,7 @@ export default function App() {
         <button
           className="form--submit"
         >
-          Sign up
+          Sign in
         </button>
       </form>
     </div>
