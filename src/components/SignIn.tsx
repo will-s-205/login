@@ -93,6 +93,8 @@ export default function Signip() {
         </button>
         <a href="/signup" className="form-link">Don't have an account? Sign up</a>
       </form>
+
+      <a href="https://github.com/will-s-205/login" target='_blank' rel="noreferrer" className='footer'>by William Step</a>
     </div>
   )
 }
