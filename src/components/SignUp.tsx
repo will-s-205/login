@@ -121,6 +121,7 @@ export default function SignUp() {
         </button>
         <a href="/login" className="form-link">Already have an account? Sign in</a>
       </form>
+      <a href="https://github.com/will-s-205/login" target='_blank' rel="noreferrer" className='footer'>by William Step</a>
     </div>
   )
 }
