@@ -6,6 +6,6 @@ Simple Sign-In/Sign-Up page with a simple logic
 App created as a part of efforts to learn and practice React, TS, API, MongoDB
 ## Learned and practiced
 * Building apps with React and Typescript
-* Signing-Up and Signin-In functionality
+* Signing-Up and Signing-In functionality
 * Using MongoDB/Mongoose
 * Using API verbs
