@@ -1,23 +1,16 @@
-// import { useEffect } from 'react'
 import '../assets/sass/FindWord.scss'
 import { useNavigate } from 'react-router-dom'
-// import jwt from 'jsonwebtoken'
+import toast, { Toaster } from 'react-hot-toast'
 import { useEffect } from 'react';
 
 export default function FindWord() {
     const navigate = useNavigate();
+    const buttons = ['Mother', 'Month', 'Morning', 'Meta', 'Metro', 'Meteor', 'Mind', 'Math']
+    const randomButtons = buttons.sort(() => Math.random() - 0.5)
 
-    // async function populateFindWord() {
-        // const data = await fetch('api/findword', {
-        // OR
-        // const req = await fetch('/findword', {
-        //     headers: {
-        //         'x-access-token': localStorage.getItem('token') || ''
-        //     }
-        // })
-        // console.log("FindWord - populateFindWord - localStorage.getItem ", localStorage.getItem('userCreds')); // DEBUG
-        // console.log("FindWord - populateFindWord - localStorage.getItem ", localStorage.getItem('token')); // DEBUG
-    // };
+    const renderButtons = randomButtons.map((button, index) => {
+        return <button key={index} className='word' onClick={handleClick} name={button}>{button}</button>
+    })
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -27,7 +20,6 @@ export default function FindWord() {
             navigate('/login', { replace: true });
             // console.log("FindWord - useEffect - NO TOKEN - ", token); // DEBUG
         } else {
-            // populateFindWord();
             // console.log("FindWord - useEffect - populateFindWord() - ", token); // DEBUG
         }
     }, [navigate])
@@ -38,64 +30,22 @@ export default function FindWord() {
     }
 
     function handleClick(event) {
-        // console.log('Button clicked!'); // DEBUG
         if (event.target.name === 'Morning') {
-            alert('Correct!')
+            toast.success('Correct!')
         } else {
-            alert('Wrong answer. Please try again')
+            toast.error('Wrong answer. Please try again')
         }
     }
 
     return (
         <div className="wrapper">
+            <Toaster />
             <h1>Translate French!</h1>
             <div className="wrapper-question">
                 <p>Matin</p>
             </div>
             <form className="wrapper-answer" onSubmit={handleSubmit}>
-
-                <button
-                    className='word'
-                    onClick={handleClick}
-                    name='Mother'>
-                    Mother
-                </button>
-
-                <button
-                    className='word'
-                    onClick={handleClick}
-                    name='Month'>
-                    Month
-                </button>
-
-                <button
-                    className='word'
-                    onClick={handleClick}
-                    name='Morning'>
-                    Morning
-                </button>
-
-                <button
-                    className='word'
-                    onClick={handleClick}
-                    name='Meta'>
-                    Meta
-                </button>
-
-                <button
-                    className='word'
-                    onClick={handleClick}
-                    name='Metro'>
-                    Metro
-                </button>
-
-                <button
-                    className='word'
-                    onClick={handleClick}
-                    name='Meteor'>
-                    Meteor
-                </button>
-
+                {renderButtons}
             </form>
         </div>
     )
